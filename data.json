@@ -1,0 +1,105 @@
+{
+    "links": [
+        {"source": 0, "target": 1},
+        {"source": 1, "target": 2},
+        {"source": 1, "target": 3},
+        {"source": 1, "target": 4},
+        {"source": 1, "target": 5},
+        {"source": 2, "target": 6},
+        {"source": 2, "target": 7},
+        {"source": 3, "target": 8},
+        {"source": 4, "target": 9},
+        {"source": 5, "target": 10}
+    ],
+    "nodes": [
+        {
+            "claimer": "Donald Trump",
+            "year": 2019,
+            "id": 0,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "1"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2019,
+            "id": 1,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "2"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2019,
+            "id": 2,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "3"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2019,
+            "id": 3,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "4"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2019,
+            "id": 4,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "5"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2019,
+            "id": 5,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "6"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2019,
+            "id": 6,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "7"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2019,
+            "id": 7,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "8"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2019,
+            "id": 8,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "9"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2019,
+            "id": 9,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "10"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2019,
+            "id": 10,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "11"
+        }
+    ]
+}
+
