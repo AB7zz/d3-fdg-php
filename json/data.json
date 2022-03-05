@@ -3,13 +3,19 @@
         {"source": 0, "target": 1},
         {"source": 1, "target": 2},
         {"source": 1, "target": 3},
-        {"source": 1, "target": 4},
-        {"source": 1, "target": 5},
+        {"source": 2, "target": 4},
+        {"source": 2, "target": 5},
         {"source": 2, "target": 6},
-        {"source": 2, "target": 7},
+        {"source": 3, "target": 7},
         {"source": 3, "target": 8},
-        {"source": 4, "target": 9},
-        {"source": 5, "target": 10}
+        {"source": 3, "target": 9},
+        {"source": 3, "target": 10},
+        {"source": 4, "target": 11},
+        {"source": 4, "target": 12},
+        {"source": 4, "target": 13},
+        {"source": 5, "target": 14},
+        {"source": 5, "target": 15},
+        {"source": 5, "target": 16}
     ],
     "nodes": [
         {
@@ -30,7 +36,7 @@
         },
         {
             "claimer": "Donald Trump",
-            "year": 2019,
+            "year": 2022,
             "id": 2,
             "type": "claim",
             "date": "2019-01-27",
@@ -46,7 +52,7 @@
         },
         {
             "claimer": "Donald Trump",
-            "year": 2019,
+            "year": 2022,
             "id": 4,
             "type": "claim",
             "date": "2019-01-27",
@@ -54,7 +60,7 @@
         },
         {
             "claimer": "Donald Trump",
-            "year": 2019,
+            "year": 2020,
             "id": 5,
             "type": "claim",
             "date": "2019-01-27",
@@ -62,7 +68,7 @@
         },
         {
             "claimer": "Donald Trump",
-            "year": 2019,
+            "year": 2020,
             "id": 6,
             "type": "claim",
             "date": "2019-01-27",
@@ -70,7 +76,7 @@
         },
         {
             "claimer": "Donald Trump",
-            "year": 2019,
+            "year": 2020,
             "id": 7,
             "type": "claim",
             "date": "2019-01-27",
@@ -78,7 +84,7 @@
         },
         {
             "claimer": "Donald Trump",
-            "year": 2019,
+            "year": 2022,
             "id": 8,
             "type": "claim",
             "date": "2019-01-27",
@@ -86,7 +92,7 @@
         },
         {
             "claimer": "Donald Trump",
-            "year": 2019,
+            "year": 2022,
             "id": 9,
             "type": "claim",
             "date": "2019-01-27",
@@ -94,11 +100,59 @@
         },
         {
             "claimer": "Donald Trump",
-            "year": 2019,
+            "year": 2020,
             "id": 10,
             "type": "claim",
             "date": "2019-01-27",
             "snippet": "11"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2019,
+            "id": 11,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "12"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2021,
+            "id": 12,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "13"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2021,
+            "id": 13,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "14"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2021,
+            "id": 14,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "15"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2021,
+            "id": 15,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "16"
+        },
+        {
+            "claimer": "Donald Trump",
+            "year": 2022,
+            "id": 16,
+            "type": "claim",
+            "date": "2019-01-27",
+            "snippet": "17"
         }
     ]
 }
