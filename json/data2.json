@@ -39,6 +39,11 @@
             "source": 8,
             "value": "1",
             "target": 0
+        },
+        {
+            "source": 9,
+            "value": "1",
+            "target": 0
         }
     ],
     "nodes": [
@@ -48,64 +53,71 @@
             "id": 0,
             "type": "claim",
             "date": "2019-01-27",
-            "snippet": "We are not even into February and the cost of illegal immigration so far this year is $18,959,495,168."
+            "snippet": "Claim We are not even into February and the cost of illegal immigration so far this year is $18,959,495,168."
         },
         {
             "type": "idk",
             "url": "https://www.politifact.com",
             "year": 2019,
-            "snippet": "\"We are not even into February and the cost of illegal immigration so far this year is $18,959,495,168.",
+            "snippet": "\"Idk We are not even into February and the cost of illegal immigration so far this year is $18,959,495,168.",
             "id": 1
+        },
+        {
+            "type": "idk",
+            "url": "https://www.politifact.com",
+            "year": 2018,
+            "snippet": "\"Idk We are not even into February and the cost of illegal immigration so far this year is $18,959,495,168.",
+            "id": 2
         },
         {
             "type": "idk2",
             "url": "https://www.politifact.com",
             "year": 2019,
-            "snippet": "\"We are not even into February and the cost of illegal immigration so far this year is $18,959,495,168.",
-            "id": 2
+            "snippet": "\"Idk2 We are not even into February and the cost of illegal immigration so far this year is $18,959,495,168.",
+            "id": 3
         },
         {
             "type": "evidence",
             "url": "https://www.thedailybeast.com",
             "year": 2019,
-            "snippet": "“There are at least 25,772,342 illegal aliens, not the 11,000,000 that have been reported for years, in our Country.",
-            "id": 3
+            "snippet": "Evidence “There are at least 25,772,342 illegal aliens, not the 11,000,000 that have been reported for years, in our Country.",
+            "id": 4
         },
         {
             "type": "evidence",
             "url": "https://www.daytondailynews.com",
             "year": "UNKNOWN",
-            "snippet": "“We are not even into February and the cost of illegal immigration so far this year is $18,959,495,168.",
-            "id": 4
+            "snippet": "Evidence “We are not even into February and the cost of illegal immigration so far this year is $18,959,495,168.",
+            "id": 5
         },
         {
             "type": "evidence",
             "url": "https://centurylink.net",
             "year": 2019,
-            "snippet": "“There are at least 25,772,342 illegal aliens, not the 11,000,000 that have been reported for years, in our Country.",
-            "id": 5
+            "snippet": "Evidence “There are at least 25,772,342 illegal aliens, not the 11,000,000 that have been reported for years, in our Country.",
+            "id": 6
         },
         {
             "type": "evidence",
             "url": "https://www.businessinsider.com",
             "year": 2019,
-            "snippet": "There are at least 25,772,342 illegal aliens, not the 11,000,000 that have been reported for years, in our Country.\".",
-            "id": 6
+            "snippet": "EvidenceThere are at least 25,772,342 illegal aliens, not the 11,000,000 that have been reported for years, in our Country.\".",
+            "id": 7
         },
         {
             "type": "evidence",
             "url": "https://thehill.com",
             "year": 2019,
-            "snippet": "There are at least 25,772,342 illegal aliens, not the 11,000,000 that have been reported for years, in our Country.",
+            "snippet": "Evidence There are at least 25,772,342 illegal aliens, not the 11,000,000 that have been reported for years, in our Country.",
             "id": 8
         },
         {
             "claimer": "Donald Trump",
             "year": 2019,
-            "id": 7,
+            "id": 9,
             "type": "claim",
             "date": "2019-01-27",
-            "snippet": "We are not even into February and the cost of illegal immigration so far this year is $18,959,495,168."
+            "snippet": "Claim We are not even into February and the cost of illegal immigration so far this year is $18,959,495,168."
         }
     ]
 }

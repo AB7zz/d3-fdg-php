@@ -5,14 +5,14 @@
     $by = $_POST['y'];
     $bvx = $_POST['vx'];
     $bvy = $_POST['vy'];
-    $check = "SELECT COUNT(*) FROM box WHERE id='$bid'";
+    $check = "SELECT COUNT(*) FROM pos WHERE id='$bid'";
     $runcheck = mysqli_query($con, $check);
     $total_rows = mysqli_fetch_array($runcheck)[0];
     if($total_rows == 0){
-        $insert = "INSERT INTO box(id, x, y, vx, vy) VALUES('$bid', '$bx', '$by', '$bvx', '$bvy')";
+        $insert = "INSERT INTO pos(id, x, y, vx, vy) VALUES('$bid', '$bx', '$by', '$bvx', '$bvy')";
 	    $runinsert = mysqli_query($con, $insert);
     }else{
-        $update = "UPDATE box SET x = '$bx', y = '$by', vx = '$bvx', vy = '$bvy' WHERE id = '$bid'";
+        $update = "UPDATE pos SET x = '$bx', y = '$by', vx = '$bvx', vy = '$bvy' WHERE id = '$bid'";
         $runupdate = mysqli_query($con, $update);
     }
 ?>

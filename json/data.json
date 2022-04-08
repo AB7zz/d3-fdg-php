@@ -30,7 +30,7 @@
             "claimer": "Donald Trump",
             "year": 2019,
             "id": 1,
-            "type": "claim",
+            "type": "idk",
             "date": "2019-01-27",
             "snippet": "2"
         },
@@ -38,7 +38,7 @@
             "claimer": "Donald Trump",
             "year": 2022,
             "id": 2,
-            "type": "claim",
+            "type": "idk2",
             "date": "2019-01-27",
             "snippet": "3"
         },
@@ -54,7 +54,7 @@
             "claimer": "Donald Trump",
             "year": 2022,
             "id": 4,
-            "type": "claim",
+            "type": "evidence",
             "date": "2019-01-27",
             "snippet": "5"
         },
