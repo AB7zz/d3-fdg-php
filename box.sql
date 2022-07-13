@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `box`
 --
 
-CREATE TABLE `box` (
+CREATE TABLE `pos2` (
   `id` bigint(20) NOT NULL,
   `x` double NOT NULL,
   `y` double NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE `box` (
 --
 -- Indexes for table `box`
 --
-ALTER TABLE `box`
+ALTER TABLE `pos2`
   ADD PRIMARY KEY (`id`);
 COMMIT;
 

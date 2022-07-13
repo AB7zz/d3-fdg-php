@@ -5,6 +5,7 @@ const svg = d3.select("body").append("svg")
     .attr("height", 5000)
 
 
+
 d3.json("./json/data.json").then(function(json, error){
     if (error){
         console.log(error)
@@ -19,12 +20,24 @@ d3.json("./json/data.json").then(function(json, error){
         .stop()
     
     for (var i = 0; i < 300; ++i) simulation.tick();
-
+    svg.append("svg:defs").append("svg:marker")
+        .attr("id", "arrow")
+        .attr("viewBox", "0 -5 10 10")
+        .attr('refX', -300)
+        .attr("markerWidth", 5)
+        .attr("markerHeight", 5)
+        .attr("orient", "auto")
+        .append("svg:path")
+        .attr("d", "M0,-5L10,0L0,5");
     const link = svg
         .selectAll("line")
         .data(json.links)
         .enter()
-        .append("line")
+        // .append("line")
+        .append("path")
+        .style( "stroke", "#000" )
+        .attr('marker-start', (d) => "url(#arrow)")//attach the arrow from defs
+        .style( "stroke-width", 1.5 );
 
     function bottomYear(x, y, year){
         svg
@@ -192,7 +205,7 @@ d3.json("./json/data.json").then(function(json, error){
     link
         // .attr('id', d => `l${d.source.id}${d.index}`)
         // .attr('backup', data => console.log(data))
-        .attr("x1", function(d){
+        .attr("xx1", function(d){
             $.ajax({
                 async: false,
                 url: 'php/check.php', 
@@ -208,7 +221,7 @@ d3.json("./json/data.json").then(function(json, error){
             })
             return x1
         })
-        .attr("y1", function(d){
+        .attr("xy1", function(d){
             $.ajax({
                 async: false,
                 url: 'php/check.php', 
@@ -224,7 +237,7 @@ d3.json("./json/data.json").then(function(json, error){
             })
             return y1
         })
-        .attr("x2", function(d){
+        .attr("xx2", function(d){
             $.ajax({
                 async: false,
                 url: 'php/check.php', 
@@ -240,7 +253,7 @@ d3.json("./json/data.json").then(function(json, error){
             })
             return x2
         })
-        .attr("y2", function(d){
+        .attr("xy2", function(d){
             $.ajax({
                 async: false,
                 url: 'php/check.php', 
@@ -256,29 +269,61 @@ d3.json("./json/data.json").then(function(json, error){
             })
             return y2
         })
-
+        .attr( "d", function(d){
+            $.ajax({
+                async: false,
+                url: 'php/check.php', 
+                type: "POST",
+                data: ({id: d.source.id}),
+                success: function(data){
+                    if(data == 0){
+                        x1 = d.source.x + 150;
+                        y1 = d.source.y+75;
+                    }else{
+                        x1 = parseFloat(data.split(" ")[0])+150;
+                        y1 = parseFloat(data.split(" ")[1]) + 75;
+                    }
+                }
+            }),
+            $.ajax({
+                async: false,
+                url: 'php/check.php', 
+                type: "POST",
+                data: ({id: d.target.id}),
+                success: function(data){
+                    if(data == 0){
+                        x2 = d.target.x+150;
+                        y2 = d.target.y+75;
+                    }else{
+                        x2 = parseFloat(data.split(" ")[0]) + 150;
+                        y2 = parseFloat(data.split(" ")[1]) + 75;
+                    }
+                }
+            })
+            return "M" + x1 + "," + y1 + ", " + x2 + "," + y2
+        })
     link.each(function(d){
         this.classList.add(`l${d.source.id}`)
         this.classList.add(`l${d.target.id}`)
     })
     
-    node
-        .on('mouseenter', function(){
-            // console.log(this.id)
-            let lines = document.getElementsByClassName(`l${this.id}`)
-            for(let i=0; i<lines.length; i++){
-                lines[i].style.stroke = 'red'
-                lines[i].style.strokeWidth = '3'
-            }
-        })
-        .on('mouseleave', function(){
-            // console.log(this.id)
-            let lines = document.getElementsByClassName(`l${this.id}`)
-            for(let i=0; i<lines.length; i++){
-                lines[i].style.stroke = 'black'
-                lines[i].style.strokeWidth = '1'
-            }
-        })
+    // node
+    //     .on('mouseenter', function(){
+    //         // console.log(this.id)
+    //         let lines = document.getElementsByClassName(`l${this.id}`)
+    //         for(let i=0; i<lines.length; i++){
+    //             lines[i].style.stroke = 'red'
+    //             lines[i].style.strokeWidth = '3'
+    //         }
+    //     })
+    //     .on('mouseleave', function(){
+    //         // console.log(this.id)
+    //         let lines = document.getElementsByClassName(`l${this.id}`)
+    //         for(let i=0; i<lines.length; i++){
+    //             lines[i].style.stroke = 'black'
+    //             lines[i].style.strokeWidth = '1'
+    //         }
+    //     })
 
     let id, x, y, vx, vy;
     function dragstarted(event, d) {
@@ -316,10 +361,11 @@ d3.json("./json/data.json").then(function(json, error){
 
     function ticked() {
         link
-            .attr("x1", d => d.source.x+150)
-            .attr("x2", d => d.target.x+150)
-            .attr("y1", d => d.source.y+75)
-            .attr("y2", d => d.target.y+75)
+            .attr("xx1", d => d.source.x+150)
+            .attr("xx2", d => d.target.x+150)
+            .attr("xy1", d => d.source.y+75)
+            .attr("xy2", d => d.target.y+75)
+            .attr( "d", d => "M" + (d.source.x+150) + "," + (d.source.y+75) + ", " + (d.target.x+150) + "," + (d.target.y+75))
 
         node
             .attr("x", d => d.x )   
