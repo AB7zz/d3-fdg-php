@@ -54,6 +54,7 @@ d3.json("./json/data.json").then(function(json, error){
     const xAxis = []
     const timelineset = []
     let maxyear = 2022
+    let minyear = 2010
     const node = svg
         .selectAll('foreignObject')
         .data(json.nodes)
@@ -65,15 +66,13 @@ d3.json("./json/data.json").then(function(json, error){
         .attr('width', 300)
         .attr('height', 205)
         .html( function(data){
-            if(data.type == "claim"){
-                return '<div class="claimbox tri-right btm-left-in border sb3"><p class="firstline">' + data.snippet + '</p><p class="claimsecondline">'+data.claimer +'</p><hr class="solid"><p class="claimdate">' + data.year + '</p></div>';
-            }else if(data.type == "idk2"){
-                return '<div class="idk2box tri-right2 btm-left-in2 border2 sb32"><p class="firstline">' + data.snippet + '</p><p class="claimsecondline">'+data.claimer +'</p><hr class="solid"><p class="claimdate">' + data.year + '</p></div>';
-            }else if(data.type == "idk"){
-                return '<div class="idkbox"><p class="firstline">' + data.snippet + '</p><p class="idksecondline">'+data.claimer +'</p><p class="idkthirdline">Truth value: '+data.claimer +'</p><hr class="solid"><p class="date">' + data.year + '</p></div>';
-            }
-            else{
-                return '<div class="box"><p class="firstline">' + data.snippet + '</p><a style="text-decoration: none" href="' + data.url + '" class="secondline">'+data.url+'</a><hr class="solid"><p class="date">' + data.year + '</p></div>';
+            if(data.type == "evidence"){
+                return '<div class="box"><p class="boxfirstline">' + data.snippet + '</p><a style="text-decoration: none" href="' + data.source + '" class="boxsecondline">'+data.source+'</a><hr class="solid"><p class="boxdate">' + data.year + '</p></div>';
+            }else if(data.type == "claim"){
+                return '<div class="claimbox tri-right2 btm-left-in2 border2 sb32"><p class="claimfirstline">' + data.snippet + '</p><p class="claimsecondline">'+data.claimer +'</p><hr class="solid"><p class="claimdate">' + data.year + '</p></div>';
+                // return '<div class="claim tri-right btm-left-in border sb3"><p class="firstline">' + data.snippet + '</p><p class="claimsecondline">'+data.claimer +'</p><hr class="solid"><p class="claimdate">' + data.year + '</p></div>';
+            }else if(data.type == "fact_check"){
+                return '<div class="fact_check"><p class="fact_checkfirstline">' + data.snippet + '</p><p class="fact_checksecondline">'+data.source +'</p><p class="fact_checkthirdline">Truth value: '+data.truth_value +'</p><hr class="solid"><p class="fact_checkdate">' + data.year + '</p></div>';
             }
         })
         .call(d3.drag()
@@ -90,14 +89,16 @@ d3.json("./json/data.json").then(function(json, error){
                 data: ({id: d.id}),
                 success: function(data){
                     if(data == 0){
-                        if(d.year == "UNKNOWN"){
+                        if(d.year[0] == "UNKNOWN"){
                             xi = ((maxyear-2019)*600)+150
+                        }else if(d.year[0] == 0){
+                            xi = ((maxyear-minyear)*600)+150
                         }else if(d.date){
                             month = parseFloat(d.date.split("-")[1])
-                            // console.log(month)
-                            xi = ((maxyear-d.year)*600)+150
-                        }else{
-                            xi = ((maxyear-d.year)*600)+150
+                            xi = ((maxyear-d.year[0])*600)+150
+                        }
+                        if (d.id == 10){
+                            console.log(xi)
                         }
                         xAxis.push(xi)
                     }else{
@@ -123,16 +124,16 @@ d3.json("./json/data.json").then(function(json, error){
                         while(json.nodes[i].id!=d.id){
                             i++
                         }
-                        if(d.year == "UNKNOWN"){
-                            d.year = 2019
+                        if(d.year[0] == "UNKNOWN"){
+                            d.year[0] = 2019
                         }
-                        if(!yAxis[maxyear-d.year]){
-                            yAxis[maxyear-d.year] = 200
+                        if(!yAxis[maxyear-d.year[0]]){
+                            yAxis[maxyear-d.year[0]] = 200
                         }
                         else{
-                            yAxis[maxyear-d.year] += 200
+                            yAxis[maxyear-d.year[0]] += 200
                         }
-                        yi = yAxis[maxyear-d.year]
+                        yi = yAxis[maxyear-d.year[0]]
                     }else{
                         yi = data.split(" ")[1];
                         vyi = data.split(" ")[3];
@@ -152,8 +153,8 @@ d3.json("./json/data.json").then(function(json, error){
         })
         .attr('timeline', (d) => {
             let ymax=json.nodes[0].y, xmax=json.nodes[0].x
-            if(d.year == "UNKNOWN"){
-                d.year = 2019
+            if(d.year[0] == "UNKNOWN"){
+                d.year[0] = 2019
             }
             // $.ajax({
             //     async: false,
@@ -190,9 +191,9 @@ d3.json("./json/data.json").then(function(json, error){
                     xmax = json.nodes[l].x
                 }
             }
-            if(!timelineset[d.year]){
-                bottomYear(d.x, ymax, d.year)
-                timelineset[d.year] = true
+            if(!timelineset[d.year[0]]){
+                bottomYear(d.x, ymax, d.year[0])
+                timelineset[d.year[0]] = true
             }
             svg
                 .attr("height", ymax+1000)
@@ -307,23 +308,23 @@ d3.json("./json/data.json").then(function(json, error){
         this.classList.add(`l${d.target.id}`)
     })
     
-    // node
-    //     .on('mouseenter', function(){
-    //         // console.log(this.id)
-    //         let lines = document.getElementsByClassName(`l${this.id}`)
-    //         for(let i=0; i<lines.length; i++){
-    //             lines[i].style.stroke = 'red'
-    //             lines[i].style.strokeWidth = '3'
-    //         }
-    //     })
-    //     .on('mouseleave', function(){
-    //         // console.log(this.id)
-    //         let lines = document.getElementsByClassName(`l${this.id}`)
-    //         for(let i=0; i<lines.length; i++){
-    //             lines[i].style.stroke = 'black'
-    //             lines[i].style.strokeWidth = '1'
-    //         }
-    //     })
+    node
+        .on('mouseenter', function(){
+            // console.log(this.id)
+            let lines = document.getElementsByClassName(`l${this.id}`)
+            for(let i=0; i<lines.length; i++){
+                lines[i].style.stroke = 'red'
+                lines[i].style.strokeWidth = '3'
+            }
+        })
+        .on('mouseleave', function(){
+            // console.log(this.id)
+            let lines = document.getElementsByClassName(`l${this.id}`)
+            for(let i=0; i<lines.length; i++){
+                lines[i].style.stroke = 'black'
+                lines[i].style.strokeWidth = '1'
+            }
+        })
 
     let id, x, y, vx, vy;
     function dragstarted(event, d) {

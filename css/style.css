@@ -25,24 +25,30 @@ body{
     cursor: pointer;
 }
 
-.date{
-    color: red;
+.boxfirstline{
     font-size: 10px;
     font-weight: bold;
 }
-.claimdate{
-    color: red;
+
+.boxsecondline{
     font-size: 10px;
+    color: #50A7FF;
     font-weight: bold;
     text-align: center;
 }
 
+.boxdate{
+    color: red;
+    font-size: 10px;
+    font-weight: bold;
+}
+
 
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 
-.claimbox {
+.greenclaim {
     width: 200px;
     background-color: #b3ff66;
     padding: 10px 50px 10px 20px;
@@ -51,11 +57,11 @@ body{
     z-index: 9999;
 }
 
-.claimbox:hover{
+.greenclaim:hover{
     cursor: pointer;
 }
 
-.claimsecondline{
+.greenclaimsecondline{
     font-size: 10px;
     color: #50A7FF;
     font-weight: bold;
@@ -96,7 +102,7 @@ body{
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 
-.idk2box {
+.claimbox {
     width: 200px;
     background-color: #fff2cc;
     padding: 10px 50px 10px 20px;
@@ -105,8 +111,25 @@ body{
     z-index: 9999;
 }
 
-.idk2box:hover{
+.claimbox:hover{
     cursor: pointer;
+}
+
+.claimfirstline{
+    font-size: 10px;
+    font-weight: bold;
+}
+.claimsecondline{
+    font-size: 10px;
+    color: #50A7FF;
+    font-weight: bold;
+}
+
+.claimdate{
+    color: red;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
 }
 
 .border2{
@@ -144,10 +167,10 @@ body{
 /* ------------------------------------------------------------------------------------------------------------ */
 
 
-.idkbox {
+.fact_check {
     width: 200px;
     background-color: #dbdbdb;
-    border-width: 9px;
+    /* border-width: 9px; */
     border-color: black;
     border-style: double !important;
     padding: 10px 50px 10px 20px;
@@ -156,28 +179,29 @@ body{
     z-index: 9999;
 }
 
-.idkbox:hover{
+.fact_check:hover{
     cursor: pointer;
 }
 
-.firstline{
+.fact_checkfirstline{
     font-size: 10px;
     font-weight: bold;
 }
-.secondline{
+.fact_checksecondline{
     font-size: 10px;
     color: #50A7FF;
     font-weight: bold;
 }
 
-.idksecondline{
-    font-size: 10px;
-    color: #50A7FF;
-    font-weight: bold;
-}
-.idkthirdline{
+.fact_checkthirdline{
     font-size: 10px;
     color: #02994e;
+    font-weight: bold;
+}
+
+.fact_checkdate{
+    color: red;
+    font-size: 10px;
     font-weight: bold;
 }
 
